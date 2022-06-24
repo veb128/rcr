@@ -14,3 +14,8 @@ body {
 h3 {
     color: white;
 }
+
+span {
+    color: white;
+    font-size: large;
+}
