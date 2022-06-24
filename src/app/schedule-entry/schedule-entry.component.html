@@ -1,0 +1,40 @@
+<div class="card" [formGroup]="entryForm">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="txtTime">Time</label>
+      <input class="form-control" id="txtTime" type="text" value="{{ time }}" readonly/>
+    </div>
+    <div class="form-group">
+      <label for="txtName">Name</label>
+      <input id="txtName" type="text" class="form-control" formControlName="name" />
+    </div>
+    <div class="form-group form-check" *ngIf="!checkedIn && name.length>0">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="cbIn"
+        (change)="onCheckedIn()"
+        formControlName="checkedIn"
+      />
+      <label class="form-check-label" for="cbIn">Checked In</label>
+    </div>
+    <p *ngIf="checkedIn">Checked in at {{ checkedInAt | date: "shortTime" }}</p>
+    <div class="form-group form-check" *ngIf="!checkedOut && name.length>0">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="cbOut"
+        formControlName = "checkedOut"
+        (change)="onCheckedOut()"
+      />
+
+      <label class="form-check-label" for="cbOut">Checked out</label>
+    </div>
+    <p *ngIf="checkedOut">
+      Checked in at {{ checkedInAt | date: "shortTime" }}
+    </p>
+  </div>
+  <div class="form-group">
+    <button class=" btn btn-primary form-control" *ngIf="name.length===0" (click)="onSaveEntry()">Save</button>
+  </div>
+</div>

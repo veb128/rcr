@@ -1,0 +1,16 @@
+.card {
+    margin-bottom: 20px;
+    background-color: lightblue;
+}
+
+.indented {
+    padding-left: 25px;
+}
+
+body {
+    background-color: darkblue;
+}
+
+h3 {
+    color: white;
+}
